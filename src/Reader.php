@@ -5,6 +5,7 @@ namespace ICFReader;
 use ICFReader\RecordType\RecordTypeInterface;
 use ICFReader\Exception\ICFReaderException;
 use ICFReader\Exception\RecordTypeException;
+use ICFReader\RecordTypes;
 
 class Reader extends AbstractReader
 {
@@ -48,16 +49,16 @@ class Reader extends AbstractReader
         foreach($data as $key => $line){
         
             $formattedLine = $this->formatLine($line);
-            if($formattedLine['type'] === 'FH10'){
+            if($formattedLine['type'] === RecordTypes::FH10){
                 $invoicesCount++;
                 $productsCount = -1;
             }
 
             switch ($formattedLine['type']) {
-                case 'FR10':
-                case 'FR20':
-                case 'FR30':
-                    if($formattedLine['type'] === 'FR10'){
+                case RecordTypes::FR10:
+                case RecordTypes::FR20:
+                case RecordTypes::FR30:
+                    if($formattedLine['type'] === RecordTypes::FR10){
                         $productsCount++;
                     }
                     $invoices[$invoicesCount]['products'][$productsCount][$formattedLine['key']] = $formattedLine['values'];
