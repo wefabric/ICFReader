@@ -1,0 +1,30 @@
+{
+    "name": "slicklabs/icf-reader",
+    "type": "library",
+    "description": "Reads ICF files",
+    "keywords": [
+        "icf",
+        "rexel",
+        "technische unie"
+    ],
+    "homepage": "https://slicklabs.nl/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Flapper",
+            "email": "leo.flapper@slicklabs.nl"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "ICFReader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ICFReader\\": "src/"
+        }
+    }
+}
