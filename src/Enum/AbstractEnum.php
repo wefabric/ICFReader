@@ -3,6 +3,7 @@
 namespace ICFReader\Enum;
 
 use ICFReader\Enum\EnumInterface;
+use ReflectionClass;
 
 abstract class AbstractEnum implements EnumInterface
 {
@@ -13,7 +14,7 @@ abstract class AbstractEnum implements EnumInterface
      */
     private function __construct() {}
 
-    private static function getConstants() 
+    protected static function getConstants()
     {
         if (self::$constCacheArray == NULL) {
             self::$constCacheArray = [];
