@@ -6,9 +6,9 @@ class FR20 extends AbstractRecordType
 {
     protected $type = 'FR20';
 
-    protected $key = 'product_surcharge';
+    protected $key = 'product_discount';
 
-    protected $title = 'Product surcharge';
+    protected $title = 'Product discount';
 
     protected $fields = [
         1 => [
