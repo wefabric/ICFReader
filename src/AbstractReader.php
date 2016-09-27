@@ -101,7 +101,7 @@ abstract class AbstractReader implements ReaderInterface
 
         if($lines = explode(PHP_EOL, $content)){
             foreach($lines as $key => $line){
-                $lines[$key] = preg_split('/\t/', $line);
+                $lines[$key] = str_replace(PHP_EOL, '', preg_split('/\t/', $line));
             }
         }
 

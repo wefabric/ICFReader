@@ -58,6 +58,10 @@ abstract class AbstractRecordType implements RecordTypeInterface
 
     private function formatValue($format, $value)
     {
+        if(!$value){
+            return null;
+        }
+        
         switch ($format) {
             case 'integer':
                 $value = (int)$value;
