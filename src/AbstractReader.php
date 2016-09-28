@@ -35,8 +35,9 @@ abstract class AbstractReader implements ReaderInterface
 
     protected function formatLine(array $data)
     {
-
-        $result = [];
+        if(!isset($data[0]) || !$data[0]){
+            return false;
+        }
 
         if(!$recordType = RecordTypes::get($data[0])){
             throw new RecordTypeException(
@@ -101,7 +102,12 @@ abstract class AbstractReader implements ReaderInterface
 
         if($lines = explode(PHP_EOL, $content)){
             foreach($lines as $key => $line){
-                $lines[$key] = str_replace(PHP_EOL, '', preg_split('/\t/', $line));
+                if($line){
+                    $lines[$key] = str_replace(PHP_EOL, '', preg_split('/\t/', $line));
+                } else {
+                    unset($lines[$key]);
+                }
+                
             }
         }
 

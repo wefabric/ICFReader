@@ -21,7 +21,6 @@ class RecordTypes extends AbstractEnum
     const FR10 = 'FR10';
     const FR20 = 'FR20';
     const FR30 = 'FR30';
-    const FH3 = 'FH3';
 
     public static function get($key = '')
     {

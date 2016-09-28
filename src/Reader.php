@@ -34,7 +34,9 @@ class Reader extends AbstractReader
     {
         end($data);
         $lastKey = key($data);
-        $this->result = array_merge($this->result, $this->formatLine($data[$lastKey])['values']);
+        if($formatLine = $this->formatLine($data[$lastKey])['values']){
+            $this->result = array_merge($this->result, $formatLine);
+        }
         unset($data[$lastKey]);
         reset($data);
 
