@@ -45,7 +45,8 @@ abstract class AbstractRecordType implements RecordTypeInterface
         foreach($this->getFields() as $key => $field){
             if(isset($data[$key])){
 
-                $value = $data[$key];
+                $value = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $data[$key]);
+                
                 if(isset($field['format'])){
                     $value = $this->formatValue($field['format'], $value);
                 }
