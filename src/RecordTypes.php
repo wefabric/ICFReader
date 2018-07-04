@@ -6,8 +6,6 @@ use ICFReader\Enum\AbstractEnum;
 
 class RecordTypes extends AbstractEnum 
 {
-    protected static $namespace = __NAMESPACE__.'\\RecordType\\';
-
     const BH10 = 'BH10';
     const BT10 = 'BT10';
     const FH10 = 'FH10';
@@ -36,7 +34,7 @@ class RecordTypes extends AbstractEnum
             }
 
             if(self::isValidKey($key)) {
-                $result = self::$namespace.$key;
+                $result = __NAMESPACE__.'\\RecordType\\'.$key;
             }
         }
 
