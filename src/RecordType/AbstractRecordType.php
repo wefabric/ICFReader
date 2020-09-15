@@ -47,6 +47,10 @@ abstract class AbstractRecordType implements RecordTypeInterface
 
                 $value = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $data[$key]);
                 
+                if (substr($value, -1) === "\r") {
+                    $value = substr($value, 0, -1);
+                }
+                
                 if(isset($field['format'])){
                     $value = $this->formatValue($field['format'], $value);
                 }
