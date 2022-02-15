@@ -90,7 +90,7 @@ abstract class AbstractReader implements ReaderInterface
 
     abstract protected function doFormat(array $data);
 
-    protected function toArray($content)
+    public function toArray($content)
     {
         if (!is_string($content)) {
             throw new \InvalidArgumentException(sprintf(
