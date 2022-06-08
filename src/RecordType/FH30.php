@@ -19,7 +19,7 @@ class FH30 extends AbstractRecordType
         2 => [
             'key' => 'percentage',
             'name' => 'Percentage',
-            'format' => 'integer'
+            'format' => 'float2'
         ]
     ];
 

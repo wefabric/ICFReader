@@ -75,7 +75,11 @@ abstract class AbstractRecordType implements RecordTypeInterface
                 $value = new \DateTime($value);
                 break;
             case 'currency':
+            case 'float2':
                 $value = ($value / 100);
+                break;
+            case 'float3':
+                $value = ($value / 1000);
                 break;
         }
 

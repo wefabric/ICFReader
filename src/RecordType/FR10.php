@@ -23,7 +23,7 @@ class FR10 extends AbstractRecordType
         3 => [
             'key' => 'quantity',
             'name' => 'Quantity',
-            'format' => 'integer'
+            'format' => 'float3'
         ],
         4 => [
             'key' => 'unit',
@@ -32,7 +32,7 @@ class FR10 extends AbstractRecordType
         5 => [
             'key' => 'invoice_quantity',
             'name' => 'Invoice quantity',
-            'format' => 'integer'
+            'format' => 'float3'
         ],
         6 => [
             'key' => 'netto_amount',
@@ -60,7 +60,7 @@ class FR10 extends AbstractRecordType
         11 => [
             'key' => 'minimum_quantity',
             'name' => 'Minimum quantity',
-            'format' => 'integer'
+            'format' => 'float3'
         ],
         12 => [
             'key' => 'minimum_quantity_unit',
