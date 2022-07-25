@@ -55,20 +55,32 @@ class Reader extends AbstractReader
                 $invoicesCount++;
                 $productsCount = -1;
             }
-
-            switch ($formattedLine['type']) {
-                case RecordTypes::FR10:
-                case RecordTypes::FR20:
-                case RecordTypes::FR30:
-                    if($formattedLine['type'] === RecordTypes::FR10){
-                        $productsCount++;
-                    }
-                    $invoices[$invoicesCount]['products'][$productsCount][$formattedLine['key']] = $formattedLine['values'];
-                    break;
-                default:
-                    $invoiceKey = str_replace('invoice_', '', $formattedLine['key']);
-                    $invoices[$invoicesCount][$invoiceKey] = $formattedLine['values'];
-            }
+	
+	        switch ($formattedLine['type']) {
+		        case RecordTypes::FR10:
+			        $productsCount++;
+			        $invoices[$invoicesCount]['products'][$productsCount][$formattedLine['key']] = $formattedLine['values'];
+			        break;
+		
+		        case RecordTypes::FR20:
+		        case RecordTypes::FR30:
+			        $productKey = str_replace('product_', '', $formattedLine['key']);
+			        $invoices[$invoicesCount]['products'][$productsCount][$productKey][] = $formattedLine['values'];
+			        break;
+		
+		        case RecordTypes::FH30:
+		        case RecordTypes::FH40:
+		        case RecordTypes::FH50:
+		        case RecordTypes::FH60:
+		        case RecordTypes::FH80:
+			        $invoiceKey = str_replace('invoice_', '', $formattedLine['key']);
+			        $invoices[$invoicesCount][$invoiceKey][] = $formattedLine['values'];
+			        break;
+		
+		        default:
+			        $invoiceKey = str_replace('invoice_', '', $formattedLine['key']);
+			        $invoices[$invoicesCount][$invoiceKey] = $formattedLine['values'];
+	        }
             
         }
         
@@ -76,8 +88,5 @@ class Reader extends AbstractReader
         
         return $data;
     }
-
-
-    
 
 }
