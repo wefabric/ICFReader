@@ -21,6 +21,8 @@ Icon
 Session.vim
 .netrwhist
 
+# PHPStorm
+.idea
+
 #Composer
-composer.lock
 /vendor

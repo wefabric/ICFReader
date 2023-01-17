@@ -17,6 +17,9 @@
     ],
     "require": {
     },
+    "require-dev": {
+        "symfony/var-dumper": "6.*"
+    },
     "autoload": {
         "psr-4": {
             "ICFReader\\": "src/"

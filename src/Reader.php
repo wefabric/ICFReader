@@ -3,7 +3,7 @@
 namespace ICFReader;
 
 use ICFReader\RecordType\RecordTypeInterface;
-use ICFReader\Exception\ICFReaderException;
+use ICFReader\Exception\ReaderException;
 use ICFReader\Exception\RecordTypeException;
 use ICFReader\RecordTypes;
 
